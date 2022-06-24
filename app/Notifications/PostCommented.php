@@ -8,7 +8,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class PostCommented extends Notification implements ShouldQueue
+class PostCommented extends Notification 
 {
     use Queueable;
 
@@ -19,7 +19,7 @@ class PostCommented extends Notification implements ShouldQueue
      */
 
      private $comment;
-     
+
     public function __construct(Comment $comment)
     {
         $this->comment = $comment;

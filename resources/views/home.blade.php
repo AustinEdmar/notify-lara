@@ -16,6 +16,8 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+
+                    {{Auth::user()->unreadNotifications->count()}}
                 </div>
             </div>
         </div>
