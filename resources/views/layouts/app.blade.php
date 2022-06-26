@@ -181,16 +181,24 @@
                             </li>
 
 
-                              <div class="notification-box">
-                                <span class="notification-count">
-                                    {{Auth::user()->unreadNotifications->count()}}
-                                </span>
-                                <div class="notification-bell">
-                                  <span class="bell-top"></span>
-                                  <span class="bell-middle"></span>
-                                  <span class="bell-bottom"></span>
-                                  <span class="bell-rad"></span>
-                                </div
+                             <a href="{{ route('notifications')}}">
+                                <div class="notification-box">
+                                    <span class="notification-count">
+                                        {{Auth::user()->unreadNotifications->count()}}
+                                    </span>
+
+                                    <div class="notification-bell">
+                                    </a>
+                                      <span class="bell-top"></span>
+
+                                      <span class="bell-middle"></span>
+                                      <span class="bell-bottom"></span>
+
+                                      <span class="bell-rad"></span>
+
+                                    </div
+
+
 
                         @endguest
                     </ul>
