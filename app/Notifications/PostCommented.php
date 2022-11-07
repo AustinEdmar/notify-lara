@@ -8,7 +8,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class PostCommented extends Notification
+class PostCommented extends Notification implements ShouldQueue
 {
     use Queueable;
 
@@ -67,8 +67,8 @@ class PostCommented extends Notification
     public function toDatabase($notifiable)
     {
         return [
-            'title' => $this->comment->title,
-            'body' => $this->comment->body,
+            'comment' => $this->comment->load('user'),
+            
         ];
     }
 }

@@ -14,7 +14,7 @@ use App\Http\Controllers\NotificationController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('notifications', [App\Http\Controllers\NotificationController::class, 'notifications'])->name('notifications');
 Route::get('/', function () {
     return view('welcome');
 });
@@ -29,17 +29,11 @@ Route::post('/comment', [App\Http\Controllers\CommentController::class, 'store']
 Auth::routes();
 
 
-Route::get('notifications/{id}', [App\Http\Controllers\NotificationController::class, 'markNotification'])->name('markNotification');
+/* Route::get('notifications/{id}', [App\Http\Controllers\NotificationController::class, 'markNotification'])->name('markNotification');
 
-Route::get('/notifications', NotificationController::class)->name('notifications');
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-
-Auth::routes();
+Route::get('/notifications', NotificationController::class)->name('notifications'); */
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+

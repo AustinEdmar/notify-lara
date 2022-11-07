@@ -6,41 +6,15 @@ use Illuminate\Http\Request;
 
 class NotificationController extends Controller
 {
-    /**
-     * Handle the incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function __invoke(Request $request)
+    public function __construct() 
     {
-        $notifications = auth()->user()->unreadNotifications;
-
-
-        return view('notifications', compact('notifications'));
+        $this->middleware('auth');
     }
 
-
-
-public function markNotification(Request $request, $id)
+    public function notifications(Request $request) 
     {
+        $notifications = $request->user()->notifications;
 
-       /*  dd($id); */
-
-        auth()->user()
-                ->unreadNotifications
-                ->when($request->id, function ($query) use ($request) {
-                    return $query->where('id', $request->id);
-                })
-                ->markAsRead();
-
-                return redirect()
-                ->route('home')
-                ->withSuccess('visto realizado');
-
+        return response()->json(compact('notifications'));
     }
-
-
-
-
 }

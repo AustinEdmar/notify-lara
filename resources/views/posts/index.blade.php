@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
         <h1>Listagem de Posts</h1>
 
         @forelse ($posts as $key=> $post)
